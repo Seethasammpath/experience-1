@@ -33,13 +33,13 @@ When(/^I click sign up button$/) do
 end
 
 Then(/^"(.*?)" message displays$/) do |message|
-  if message =='Thank you'
+  if message =='Thank you' #when expecting thank you message find it on page
     within('.exact-target-submitted') do  #newsletter section should have submitted section
       page.has_content?(message) &&  page.has_content?('We\'ll be in touch with you soon') #Thank you message displays
     end
 
   elseif
-    within('.exact-target-confirmation') do  #newsletter section should have submitted section
+    within('.exact-target-confirmation') do  #otherwise expect error message
       page.has_content?(message)  #Error message displays
     end
   end
