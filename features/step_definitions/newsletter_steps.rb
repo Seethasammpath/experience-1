@@ -1,8 +1,9 @@
 Given(/^I am on the Experience home page$/) do
-  visit "http://exp-beach2-preprod-app.usatoday.com/beach/" #go to the beaches experience site
+  #visit "http://exp-beach2-preprod-app.usatoday.com/beach/" #go to the beaches experience site
+  visit "http://experience.usatoday.com/beach/" #go to the beaches experience site
 end
 
-When(/^the hompeage loads$/) do
+When(/^The hompeage loads$/) do
   expect(page).to have_css('#experience-header') #check for the header
 end
 
@@ -11,12 +12,12 @@ Then(/^Newsletter sign up is present on page$/) do
 
 end
 
-When(/^the Email field is empty$/) do
+When(/^The Email field is empty$/) do
   expect(page).to have_css('input.exact-target-input.exact-target-email.required') #find email field
 end
 
-Then(/^the field has default text "(.*?)"$/) do |email_default|
-    expect(find('.exact-target-email')[:placeholder]).to match(email_default) #check for placeholder text
+Then(/^The field has default text "(.*?)"$/) do |email_default|
+    expect(find('.exact-target-email')["placeholder"]).to match(email_default) #check for placeholder text
 end
 
 When(/^I type "(.*?)" in the email field$/) do |valid_email|
